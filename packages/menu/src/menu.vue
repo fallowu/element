@@ -98,6 +98,10 @@
     },
 
     props: {
+      isSubMenuPop: {
+        type: Boolean,
+        default: false
+      },
       mode: {
         type: String,
         default: 'vertical'
@@ -135,7 +139,7 @@
         return this.backgroundColor ? this.mixColor(this.backgroundColor, 0.2) : '';
       },
       isMenuPopup() {
-        return this.mode === 'horizontal' || (this.mode === 'vertical' && this.collapse);
+        return this.mode === 'horizontal' || (this.mode === 'vertical' && this.collapse) || (this.mode==='vertical' && this.isSubMenuPop);
       }
     },
     watch: {
